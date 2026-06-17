@@ -1,0 +1,32 @@
+name = "cuba4312"
+main = "worker.js"
+compatibility_date = "2026-05-26"
+
+[vars]
+UUID = "42955aa7-9f93-45bc-a23a-c0ddfcb7af8f"
+PROXYIP = "128.199.255.242:443"
+
+# For sensitive values, prefer `wrangler secret put` over [vars]:
+#   wrangler secret put UUID
+#   wrangler secret put PROXYIP
+
+[triggers]
+crons = ["*/3 * * * *"]
+
+[observability]
+enabled = true
+head_sampling_rate = 1
+
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+persist = true
+invocation_logs = true
+
+[observability.traces]
+enabled = true
+persist = true
+head_sampling_rate = 1
+
+[placement]
+host = "fnnas.nadav.com.cn:5666"
